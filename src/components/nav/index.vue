@@ -1,11 +1,21 @@
 <template>
   <div id="nav">
     <el-menu
-      default-active="2"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
     >
+    <div v-for="(item, index) in navlist" :key="index">
+       <el-submenu v-if='item.children'>
+        <span slot="title">{{ item.title }}</span>
+            <el-menu-item v-for='(ele,index) in item.children' :key='index'>{{ele.title}}</el-menu-item>
+      </el-submenu>
+      <el-menu-item v-else >
+        <span slot="title">{{ item.title }}</span>
+      </el-menu-item>
+    </div>
+     
+
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
@@ -41,9 +51,46 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      navlist: [
+        {
+          id: "1",
+          title: "首页",
+        },
+        {
+          id: "2",
+          title: "文档",
+          children: [
+            {
+              id: "2-1",
+              title: "文档1",
+            },
+             {
+              id: "2-1",
+              title: "文档1",
+            },
+             {
+              id: "2-1",
+              title: "文档1",
+            },
+             {
+              id: "2-1",
+              title: "文档1",
+            },
+          ],
+        },
+        {
+          id: "3",
+          title: "ElementUI",
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style lang='scss'>
-@import '@/style/business/nav/index.scss';
+@import "@/style/business/nav/index.scss";
 </style>
