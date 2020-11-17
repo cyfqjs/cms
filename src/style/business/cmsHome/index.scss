@@ -1,0 +1,14 @@
+/**
+* @name cmsHome/index.css
+* @description  首页布局样式
+* @author qijianshuang
+* @version 2020-11-17 18:20:45 星期二
+*/
+
+#home{
+    height: 100%;
+    display: flex;
+    .content{
+        flex:1;
+    }
+}
