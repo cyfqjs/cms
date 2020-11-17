@@ -1,19 +1,6 @@
-import Vue from 'vue'
-import App from './App'
-// 路由
+import { createApp } from 'vue'
+import App from './App.vue'
 import router from './router'
+import store from './store'
 
-// element-ui
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-
-Vue.use(ElementUI);
-
-Vue.config.productionTip = false
-
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  render: h => h(App)
-})
+createApp(App).use(store).use(router).mount('#app')
